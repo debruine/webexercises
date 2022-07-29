@@ -20,7 +20,7 @@ Imports:
     utils,
     rmarkdown (>= 2.2)
 License: CC BY-SA 4.0
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 Suggests: 
     testthat,
     bookdown,
