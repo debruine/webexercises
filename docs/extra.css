@@ -20,6 +20,18 @@
     background-color: #c0edc2;
     border-radius: 0.25em;
 }
+
+.webex-incorrect span::before,
+.webex-incorrect + .webex-icon::after {
+  content: "\274C  ";
+}
+
+.webex-correct span::before,
+.webex-correct + .webex-icon::after {
+  content: "\2705  ";
+}
+
+
 /* styles for hidden solutions */
 .webex-solution {
     height: 2.5em;
@@ -57,4 +69,21 @@
 .webex-radiogroup label input {
   position: relative;
   left: -1em;
+}
+
+.webex-quiz {
+  border: 1px solid var(--blue);
+}
+.webex-quiz-title {
+  margin: 0 0 0.5em 0;
+  padding-left: 1em;
+  font-size: 150%;
+  background-color: var(--blue);
+  color: white;
+}
+.webex-question {
+  margin-bottom: 0.5em;
+}
+.webex-question-text {
+  padding-right: 0.5em;
 }

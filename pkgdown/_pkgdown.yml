@@ -26,6 +26,12 @@ reference:
   - '`hide`'
   - '`unhide`'
   - '`total_correct`'
+- title: Learnr Syntax
+  desc: ~
+  contents:
+  - '`quiz`'
+  - '`question`'
+  - '`answer`'
 - title: Helper Functions
   desc: ~
   contents:

@@ -105,7 +105,7 @@ x <- sample(2:8, 1)
 fitb(x)
 ```
 
-- The square root of 36 is: <input class='webex-solveme nospaces' size='1' data-answer='["6"]'/>
+- The square root of 9 is: <input class='webex-solveme nospaces' size='1' data-answer='["3"]'/>
 
 
 
@@ -192,14 +192,14 @@ longmcq(opts_p)
 
 **What is a p-value?**
 
-<div class='webex-radiogroup' id='radio_SUZRKPLKKX'><label><input type="radio" autocomplete="off" name="radio_SUZRKPLKKX" value=""></input> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_SUZRKPLKKX" value="answer"></input> <span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_SUZRKPLKKX" value=""></input> <span>the probability of making an error in your conclusion</span></label></div>
+<div class='webex-radiogroup' id='radio_BHKZEXSCQF'><label><input type="radio" autocomplete="off" name="radio_BHKZEXSCQF" value=""></input> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_BHKZEXSCQF" value="answer"></input> <span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_BHKZEXSCQF" value=""></input> <span>the probability of making an error in your conclusion</span></label></div>
 
 
 **What is true about a 95% confidence interval of the mean?**
 
 
 
-<div class='webex-radiogroup' id='radio_UHWJVDBBYO'><label><input type="radio" autocomplete="off" name="radio_UHWJVDBBYO" value=""></input> <span>there is a 95% probability that the true mean lies within this range</span></label><label><input type="radio" autocomplete="off" name="radio_UHWJVDBBYO" value="answer"></input> <span>if you repeated the process many times, 95% of intervals calculated in this way contain the true mean</span></label><label><input type="radio" autocomplete="off" name="radio_UHWJVDBBYO" value=""></input> <span>95% of the data fall within this range</span></label></div>
+<div class='webex-radiogroup' id='radio_EETFWANYAL'><label><input type="radio" autocomplete="off" name="radio_EETFWANYAL" value=""></input> <span>there is a 95% probability that the true mean lies within this range</span></label><label><input type="radio" autocomplete="off" name="radio_EETFWANYAL" value="answer"></input> <span>if you repeated the process many times, 95% of intervals calculated in this way contain the true mean</span></label><label><input type="radio" autocomplete="off" name="radio_EETFWANYAL" value=""></input> <span>95% of the data fall within this range</span></label></div>
 
 
 ### Hidden solutions and hints
@@ -259,6 +259,44 @@ add_to_bookdown(bookdown_dir = ".",
                 script_dir = "scripts",
                 output_format = "gitbook")
 ```
+
+## Learnr syntax
+
+You can use learnr syntax to set up webexercises, too. 
+
+
+```r
+quiz(caption = "Learnr Syntax Examples",
+  # fitb: a single true answer
+  question("2 + 2 is",
+           answer(4, TRUE)),
+  # multi-answer: set type explicitly
+  question("Type a vowel:",
+           type = "learnr_text",
+           answer("A", TRUE),
+           answer("E", TRUE),
+           answer("I", TRUE),
+           answer("O", TRUE),
+           answer("U", TRUE),
+           options = list(ignore_case = TRUE)),
+  # mcq: short answers (charlength <= 50)
+  question("Never gonna give you up, never gonna:",
+           answer("let you go"), 
+           answer("turn you down"), 
+           answer("run away"), 
+           answer("let you down", TRUE),
+           random_answer_order = TRUE),
+  # longmcq: longer answers (charlength > 50)
+  question("What is a p-value?",
+           answer("the probability that the null hypothesis is true"),
+           answer("the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true", TRUE),
+           answer("the probability of making an error in your conclusion"))
+)
+```
+
+<div class='webex-quiz'><div class='webex-quiz-title'>Learnr Syntax Examples</div><ol><li><div class='webex-question'><span class='webex-question-text'>2 + 2 is</span><input class='webex-solveme nospaces' size='1' data-answer='["4"]'/></div></li><li><div class='webex-question'><span class='webex-question-text'>Type a vowel:</span><input class='webex-solveme nospaces ignorecase' size='1' data-answer='["A","E","I","O","U"]'/></div></li><li><div class='webex-question'><span class='webex-question-text'>Never gonna give you up, never gonna:</span><select class='webex-select'><option value='blank'></option><option value='x'>let you go</option><option value='x'>turn you down</option><option value='x'>run away</option><option value='answer'>let you down</option></select></div></li><li><div class='webex-question'><span class='webex-question-text'>What is a p-value?</span><div class='webex-radiogroup' id='radio_EXVKZCERZD'><label><input type="radio" autocomplete="off" name="radio_EXVKZCERZD" value="x"></input> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_EXVKZCERZD" value="answer"></input> <span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_EXVKZCERZD" value="x"></input> <span>the probability of making an error in your conclusion</span></label></div>
+</div></li></ol></div>
+
 
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

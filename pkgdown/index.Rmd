@@ -246,6 +246,40 @@ add_to_bookdown(bookdown_dir = ".",
                 output_format = "gitbook")
 ```
 
+## Learnr syntax
+
+You can use learnr syntax to set up webexercises, too. 
+
+```{r, results='asis'}
+quiz(caption = "Learnr Syntax Examples",
+  # fitb: a single true answer
+  question("2 + 2 is",
+           answer(4, TRUE)),
+  # multi-answer: set type explicitly
+  question("Type a vowel:",
+           type = "learnr_text",
+           answer("A", TRUE),
+           answer("E", TRUE),
+           answer("I", TRUE),
+           answer("O", TRUE),
+           answer("U", TRUE),
+           options = list(ignore_case = TRUE)),
+  # mcq: short answers (charlength <= 50)
+  question("Never gonna give you up, never gonna:",
+           answer("let you go"), 
+           answer("turn you down"), 
+           answer("run away"), 
+           answer("let you down", TRUE),
+           random_answer_order = TRUE),
+  # longmcq: longer answers (charlength > 50)
+  question("What is a p-value?",
+           answer("the probability that the null hypothesis is true"),
+           answer("the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true", TRUE),
+           answer("the probability of making an error in your conclusion"))
+)
+```
+
+
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 

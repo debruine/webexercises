@@ -8,9 +8,11 @@
 #' @return html
 #' @export
 quiz <- function(..., caption = "Quiz") {
-  questions <- c(...) |> paste0(collapse = "</li><li>")
-  sprintf("<div class='webex-quiz'><div class='webex-quiz-title'>%s</div><ol><li>%s</li></ol></div>", 
-          caption, questions) |> cat()
+  questions <- paste0(c(...), collapse = "</li><li>")
+  html <- sprintf("<div class='webex-quiz'><div class='webex-quiz-title'>%s</div><ol><li>%s</li></ol></div>", 
+          caption, questions)
+  
+  cat(html)
 }
 
 #' LearnR-style question
@@ -28,7 +30,7 @@ quiz <- function(..., caption = "Quiz") {
 #' @param try_again_button (not used yet)
 #' @param allow_retry (not used yet)
 #' @param random_answer_order Whether to randomise the order of the answers
-#' @param options (not used yet)
+#' @param options options to pass onto webexercises widget function
 #'
 #' @return html for the webexercises question
 #' @export
@@ -55,9 +57,9 @@ question <- function(text, ...,
   # get options, randomise, and count answers
   opts <- c(...)
   if (random_answer_order) opts <- sample(opts)
-  ix <- which(names(opts) == "answer") |> length()
+  ix <- length(which(names(opts) == "answer"))
   if (ix == 0) stop("There must be at least one correct answer")
-  maxchar <- sapply(opts, nchar) |> max()
+  maxchar <- max(sapply(opts, nchar))
   
   # check/guess type
   type <- match.arg(type)

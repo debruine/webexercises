@@ -49,7 +49,7 @@ question(
 
 \item{random_answer_order}{Whether to randomise the order of the answers}
 
-\item{options}{(not used yet)}
+\item{options}{options to pass onto webexercises widget function}
 }
 \value{
 html for the webexercises question
